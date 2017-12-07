@@ -6,17 +6,17 @@ import Timeline  from 'react-native-timeline-listview';
 export default class Steps extends React.Component {
 	constructor(){
 		super()
-		    this.onEventPress = this.onEventPress.bind(this)
+		  this.onEventPress = this.onEventPress.bind(this)
 			this.renderSelected = this.renderSelected.bind(this)
 			this.renderDetail = this.renderDetail.bind(this)
 
 		this.Data = [
-			{time: '09:00', title: 'Position 1', description: 'Position 1 Description'},
-	      	{time: '10:45', title: 'Position 2', description: 'Position 2 Description'},
-	      	{time: '12:00', title: 'Position 3', description: 'Position 3 Description'},
-	      	{time: '14:00', title: 'Position 4', description: 'Position 4 Description'},
-			{time: '16:30', title: 'Position 5', description: 'Position 5 Description'},
-			{time: '17:30', title: 'Position 6', description: 'Position 6 Description'},
+			{time: '09:00', title: 'Chambre d\'entrée', description: 'Votre enfant est super content, il joue à croque carotte, saute et mange du chocolat avec du fromage', icon: require('./bleu.png')},
+    	{time: '10:45', title: 'Couloir', description: 'Votre enfant fait de galipettes', icon: require('./vert.png')},
+    	{time: '12:00', title: 'Salle d\'attente', description: 'Votre enfant dort', icon: require('./rose.png')},
+    	{time: '14:00', title: 'Bloc opératoire', description: 'Votre enfant est super content, il joue à croque carotte, saute et mange du chocolat avec du fromage', icon: require('./bleu.png')},
+			{time: '16:30', title: 'Salle de réveil', description: '', icon: require('./vert.png')},
+			{time: '17:30', title: 'Chambre de sortie', description: 'Votre enfant est super content, il joue à croque carotte, saute et mange du chocolat avec du fromage', icon: require('./rose.png')},
 		]
 		this.state = {selected: null}
 	
@@ -61,8 +61,8 @@ export default class Steps extends React.Component {
 		        <Timeline 
 		          style={styles.list}
 		          data={this.Data}
-		          circleSize={20}
-		          circleColor='#8ABD24'
+		          //circleSize={20}
+		          //circleColor='#8ABD24'
 		          lineColor='#8ABD24'
 		          timeContainerStyle={{minWidth:52, marginTop: -5}}
 		          timeStyle={{textAlign: 'center', color:'black', padding:5}}
@@ -70,11 +70,12 @@ export default class Steps extends React.Component {
 		          options={{
 		            style:{paddingTop:5}
 		          }}
-		          innerCircle={'icon'}
 		          onEventPress={this.onEventPress}                    
 		          separator={false}
-		          detailContainerStyle={{marginBottom: 20, paddingLeft: 5, paddingRight: 5, backgroundColor: "#00ADE9"}}
-				columnFormat='single-column-right'
+		          detailContainerStyle={{marginBottom: 20, paddingLeft: 5, paddingRight: 5, backgroundColor: "white",   borderWidth: 2, borderColor: '#E3007E',}}
+				      //columnFormat='two-column'
+              columnFormat='single-column-left'
+              innerCircle={'icon'}
 		        />
 			</View>
 		);
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-	paddingTop:35,
+	  paddingTop:35,
     backgroundColor:'white'
   },
   list: {
